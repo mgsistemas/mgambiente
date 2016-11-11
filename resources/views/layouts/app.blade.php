@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    @if (env('AMBIENTE')!='d')
+        <link href="{{ url('public/css/app.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ url('css/app.css') }}" rel="stylesheet">
+    @endif
 
     <!-- Scripts -->
     <script>
@@ -101,7 +105,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    @if (env('AMBIENTE')!='d')
+        <script src="{{ url('public/js/app.js') }}"></script>
+    @else
+        <script src="{{ url('js/app.js') }}"></script>
+    @endif
     <script type="text/javascript">
         $(document).ready(function () {
             @yield('post-scripts')

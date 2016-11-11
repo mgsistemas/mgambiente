@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Batch;
 use \DB;
+use Illuminate\Support\Facades\Log;
 
 class BatchController extends Controller
 {
@@ -66,7 +67,12 @@ class BatchController extends Controller
             $batchs = $rs_::paginate(20);
         }
         */
-        $batchs = Batch::whereNome('nome','like',"%txt%")->paginate(20);
+        try {
+            $batchs = Batch::where('nome','like','%' . $txt . '%')->paginate(20);
+            //dd($batchs);
+        } catch (\Exception $e) {
+            Log::info("Erro : " . $e);
+        }
         return view('batchs.index', compact('batchs'));
     }
 

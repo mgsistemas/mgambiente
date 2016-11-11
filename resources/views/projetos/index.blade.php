@@ -15,7 +15,7 @@
 
 
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-responsive table-striped">
 
         <thead>
         <th width="10%" style="text-align: center">#ID</th>

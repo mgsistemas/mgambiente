@@ -22,7 +22,7 @@
     <div class="row">
         &nbsp;
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive">
         <thead>
             <th width="05%">#ID</th>
             <th width="20%">Nome do Batch</th>
@@ -58,9 +58,9 @@
     function buscar() {
         var busca = $('#busca').val();
         if (busca != '') {
-            location.href = '/batchs/search/' + busca;
+           location.href = 'batchs/search/' + busca;
         } else {
-            location.href = '/batchs';
+           location.href = '{{ url('/batchs') }}';
         }
     }
 
