@@ -21,4 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('projetos','ProjetoController');
 Route::resource('batchs','BatchController');
-Route::get('batchs/search/{txt}',['uses'=>'BatchController@show', 'as'=>'batch.busca']);
+Route::resource('backlogs','BackLogController');
+
+Route::get('batchs/search/{txt}',['uses'=>'BatchController@busca', 'as'=>'batch.busca']);
+Route::get('backlogs/search/{txt}',['uses'=>'BackLogController@busca', 'as'=>'backlog.busca']);

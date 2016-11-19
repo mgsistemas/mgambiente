@@ -6,7 +6,9 @@
     <h3>Lista de Batchs</h3>
     <div class="row">
         <div class="col-lg-3">
+            @if (Auth::user()->role != \App\User::ROLE_CLIENT)
             <a href="{{ route('batchs.create') }}" class="btn btn-primary">Novo Batch</a>
+            @endif
         </div>
         <div class="col-lg-3">
             &nbsp;
@@ -26,9 +28,11 @@
         <thead>
             <th width="05%">#ID</th>
             <th width="20%">Nome do Batch</th>
-            <th width="20%">Projeto</th>
+            <th width="15%">Projeto</th>
             <th width="15%">Execução</th>
-            <th width="30%">Saída</th>
+            <th width="10%">Ambiente</th>
+            <th width="15%">Saída</th>
+            <th width="10%">Situação</th>
             <th width="05%">Ações</th>
         </thead>
         <tbody>
@@ -38,9 +42,18 @@
                     <td>{{ $batch->nome }}</td>
                     <td>{{ \App\Projeto::getNomeProjeto($batch->projeto_id) }}</td>
                     <td>{{ $batch->execucao }}</td>
+                    <td>{{ $batch->ambiente }}</td>
                     <td>{{ $batch->saida }}</td>
-                    <td>
-                        <a href="{{ route('batchs.edit',$batch->id) }}" class="btn btn-info">Editar</a>
+                    <td>{{ $batch->situacao }}</td>
+                    <td align="center">
+                        @if (Auth::user()->role != \App\User::ROLE_CLIENT)
+                        <a href="{{ route('batchs.edit',$batch->id) }}" title="Editar Batch :  {{ $batch->nome }}" >
+                            <img src="{{URL::asset('/img/edit_sgps.png')}}"  height="20" width="20">
+                        </a>
+                        @endif
+                        <a href="{{ route('batchs.show',$batch->id) }}" title="Ver Detalhes do Batch {{ $batch->nome }}" >
+                            <img src="{{URL::asset('/img/lupa.png')}}"  height="20" width="20">
+                        </a>
                     </td>
                 </tr>
             @endforeach

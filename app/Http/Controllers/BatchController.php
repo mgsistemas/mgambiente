@@ -55,7 +55,13 @@ class BatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($txt)
+    public function show($id)
+    {
+        $batch = \App\Batch::find($id);
+        return view('batchs.show', compact('batch'));
+    }
+
+    public function busca($txt)
     {
         // se enviado parametro, entao processa busca
         /*
@@ -74,6 +80,7 @@ class BatchController extends Controller
             Log::info("Erro : " . $e);
         }
         return view('batchs.index', compact('batchs'));
+
     }
 
     /**

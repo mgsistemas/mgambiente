@@ -2,7 +2,7 @@
 <div class="form-group">
     {!! Form::label('projeto_id','Projeto',['class'=>'col-sm-2 control-label']) !!}
     <div class="col-sm-3">
-        {!! Form::select('projeto_id',$projetos,null,['class'=>'form-control'])!!}
+        {!! Form::select('projeto_id',$projetos,null,['class'=>'form-control','placeholder'=>'Selecione um Projeto'])!!}
     </div>
 </div>
 

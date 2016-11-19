@@ -54,7 +54,8 @@ class ProjetoController extends Controller
      */
     public function show($id)
     {
-        //
+        $projeto = \App\Projeto::find($id);
+        return view('projetos.show', compact('projeto'));
     }
 
     /**

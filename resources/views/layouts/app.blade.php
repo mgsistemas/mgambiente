@@ -57,6 +57,9 @@
                         <li>
                             <a href="{{ route('batchs.index') }}">Batchs</a>
                         </li>
+                        <li>
+                            <a href="{{ route('backlogs.index') }}">Backlog</a>
+                        </li>
                     </ul>
                     @endif
 

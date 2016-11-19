@@ -20,4 +20,13 @@ class Batch extends Model
         return $this->belongsTo('\App\Projeto','projeto_id','id');
     }
 
+    public function getCreateAtFormattedAttribute()
+    {
+        return (new \DateTime($this->created_at))->format('d/m/Y H:i:s');
+    }
+
+    public function getUpdatedAtFormattedAttribute()
+    {
+        return (new \DateTime($this->updated_at))->format('d/m/Y H:i:s');
+    }
 }

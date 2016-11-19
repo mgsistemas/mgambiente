@@ -33,3 +33,9 @@ $factory->define(App\Projeto::class, function (Faker\Generator $faker) {
     ];
 });
 
+
+$factory->define(App\Responsible::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});

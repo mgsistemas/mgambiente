@@ -15,6 +15,6 @@ class ProjetoSeeder extends Seeder
        // \DB::table('projetos')->truncate();
 
         // processa os seeders
-        factory(App\Projeto::class,5)->create();
+        //factory(App\Projeto::class,5)->create();
     }
 }

@@ -5,8 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+            @if (Auth::user()->role != \App\User::ROLE_CLIENT)
             <a href="{{ route('projetos.create') }}" class="btn btn-primary">Novo Projeto</a>
-
+            @endif
         </div>
     </div>
     <div class="row">
@@ -35,7 +36,14 @@
             <td>{{ $projeto->created_at->format('d/m/Y H:i:s') }}</td>
             <td>{{ $projeto->updated_at->format('d/m/Y H:i:s') }}</td>
             <td align="center">
-                <a href="{{ route('projetos.edit',$projeto->id) }}" class="btn btn-info">Editar</a>
+                @if (Auth::user()->role != \App\User::ROLE_CLIENT)
+                <a href="{{ route('projetos.edit',$projeto->id) }}" >
+                    <img src="{{ asset('img//edit_sgps.png')}}" title="Editar Projeto : {{ $projeto->nome }}" width="20" height="20"/>
+                </a>
+                @endif
+                <a href="{{ route('projetos.show',$projeto->id) }}" >
+                    <img src="{{ asset('img//lupa.png')}}" title="Ver detalhes do Projeto : {{ $projeto->nome }}" width="20" height="20"/>
+                </a>
             </td>
         </tr>
         @endforeach

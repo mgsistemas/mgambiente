@@ -10,6 +10,40 @@
 
 namespace App{
 /**
+ * App\Backlog
+ *
+ * @property integer $id
+ * @property string $descricao
+ * @property integer $projeto_id
+ * @property integer $situation_id
+ * @property integer $responsible_id
+ * @property float $horas
+ * @property float $conclusao
+ * @property string $dependente
+ * @property string $data_inicio
+ * @property string $data_fim
+ * @property string $observacao
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereDescricao($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereProjetoId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereSituationId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereResponsibleId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereHoras($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereConclusao($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereDependente($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereDataInicio($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereDataFim($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereObservacao($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Backlog whereUpdatedAt($value)
+ */
+	class Backlog extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Batch
  *
  * @property integer $id
@@ -54,6 +88,30 @@ namespace App{
  * @method static \Illuminate\Database\Query\Builder|\App\Projeto whereUpdatedAt($value)
  */
 	class Projeto extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Responsible
+ *
+ * @property integer $id
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Responsible whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Responsible whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Responsible whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Responsible whereUpdatedAt($value)
+ */
+	class Responsible extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Situacion
+ *
+ */
+	class Situacion extends \Eloquent {}
 }
 
 namespace App{
